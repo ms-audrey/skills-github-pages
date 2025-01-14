@@ -15,142 +15,123 @@ body {
   background-color: #FF7F00; /* Bright orange background */
   color: #FFB84D; /* Light orange text */
   font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
+  position: relative; /* Allow positioning of images above the text */
 }
 
 /* Define the bright-pink class */
 .bright-pink {
   color: #FF007F; /* Hot pink text */
 }
-  
+
 .bright-turquoise {
-    color: #40E0D0; /* Bright turquoise */
+  color: #40E0D0; /* Bright turquoise */
 }
 
 .bright-royal-blue {
-    color: #4169E1; /* Royal blue */
+  color: #4169E1; /* Royal blue */
 }
-  
+
 a, a:visited {
-color: #FFA500; /* Light orange color for links */
+  color: #FFA500; /* Light orange color for links */
 }
 
 a:hover {
-color: black; /* Change color to black on hover */
+  color: black; /* Change color to black on hover */
 }
 
 .hl {
-font-weight: bold;
+  font-weight: bold;
 }
 
 a, a:visited {
-text-decoration: none; /* Ensure no underlines on links */
+  text-decoration: none; /* Ensure no underlines on links */
 }
 
-.BDTLL_status {
-cursor: pointer;
-display: inline;
-margin-right: 3px;
-width: 16px;
-height: 16px;
-}
-
-.BDTLL_Search_Popup {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui;
-
-position: absolute !important;
-min-height: 70px !important;
-
-border-style: solid !important;
-border-width: 1px !important;
-border-radius: 5px !important;
-
-overflow: hidden !important;
-z-index: 999999999999999 !important;
-
-background-color: rgb(255, 255, 255) !important;
-border-color: rgba(100, 100, 100, 0.9) !important;
-}
-
-.BDTLL_Search_Popup > .BDTLL_left_box {
-position: absolute !important;
-top: 0px !important;
-height: auto !important;
-bottom: 0px !important;
-
-left: 0px !important;
-width: 92px !important;
-
-background-size: 50px 50px !important;
-background-repeat: no-repeat !important;
-background-position: center !important;
-
-background-color: rgb(240, 242, 246) !important;
-}
-
-.BDTLL_Search_Popup > .BDTLL_right_box {
-display: inline-block !important;
-margin-left: 92px !important;
-width: 210pt !important;
-
-box-sizing: border-box !important;
-padding-left: 10px !important;
-padding-right: 5px !important;
-}
-
-.BDTLL_Search_Popup p {
-white-space: pre-wrap !important;
-word-wrap: normal !important;
-margin: 0px !important;
-padding: 0px !important;
-text-align: left;
-}
-
-/* Grid for images */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-gap: 10px;
+/* Background Text Styling */
+.background-text {
+  position: relative; /* Keeps the text positioned normally in the page */
+  z-index: 1; /* Lower stacking order so that the images will appear above it */
+  color: #FFB84D; /* Light orange text */
+  font-size: 32px;
   padding: 20px;
+  background-color: transparent; /* Make sure the background is transparent */
+  margin-bottom: 50px; /* Adds some space below the text */
 }
 
-.image-placeholder {
-  background-color: white; /* White fill-in for images */
-  width: 100%;
-  height: 150px; /* Adjust the height of the placeholder */
-  border: 2px solid #FF007F; /* Border color to match the theme */
-  text-align: center;
-  line-height: 150px; /* Centers text vertically */
-  color: #FF007F; /* Hot pink text color */
-  font-weight: bold;
-  font-size: 18px;
+/* Image Grid Styling */
+.image-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative; /* This allows the images to be placed above the text */
+  z-index: 2; /* Make sure images are above the text */
 }
+
+.image-item {
+  position: relative; /* Make each image item relative so that we can adjust it */
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fits in the box */
+  position: absolute; /* This makes the image overlap the text */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Ensures the images are above the text */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.image-item:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Style for Links in the Text */
+a {
+  color: #FF007F; /* Bright pink color for links */
+  font-weight: bold;
+}
+
+a:hover {
+  color: #FF007F; /* Change color on hover */
+}
+
 </style>
 </head>
-<body style="font-family: courier-classic, monospace; word-break: break-all; line-height: 1; font-size: 32px;">
+<body>
 
-<!-- Page content -->
-<p>We the People of the United States, For b88y grace you have been saved through <span class="bright-turquoise">gutter.couture</span> faith...</p>
-
-<!-- Grid of images (placeholders for now) -->
-<div class="image-grid">
-  <div class="image-placeholder">Image 1</div>
-  <div class="image-placeholder">Image 2</div>
-  <div class="image-placeholder">Image 3</div>
-  <div class="image-placeholder">Image 4</div>
-  <div class="image-placeholder">Image 5</div>
-  <div class="image-placeholder">Image 6</div>
-  <div class="image-placeholder">Image 7</div>
-  <div class="image-placeholder">Image 8</div>
-  <div class="image-placeholder">Image 9</div>
-  <div class="image-placeholder">Image 10</div>
-  <div class="image-placeholder">Image 11</div>
-  <div class="image-placeholder">Image 12</div>
-  <div class="image-placeholder">Image 13</div>
-  <div class="image-placeholder">Image 14</div>
-  <div class="image-placeholder">Image 15</div>
+<!-- Background Text -->
+<div class="background-text">
+  We the People of the United States, For b88y grace you have been saved through <span class="bright-turquoise">gutter.couture</span> faith. 
+  And this is not your own doing; it is against your enemies to give you victory, without just compensation. 
+  <br>Order to <a href="blantscollection.html"><span class="bright-pink">BLANTS COLLECTION</span></a> form a more perf88ect Union, Do nothing out of selfish ambition or vain conceit. 
+  Rather, in humility value others above yourselves establish Justice, My grace is sufficient for 
+  you, for my power is made perfect in weakness insure domestic tranquility, Humble yourselves before the Lord, and he will lift you up, 
+  provide for the common defense, Give, and it will be given to you.
 </div>
 
-<p><a href="blantscollection.html"><span class="bright-pink">BLANTS COLLECTION</span></a></p>
+<!-- Image Grid -->
+<div class="image-grid">
+  <div class="image-item">
+    <img src="https://via.placeholder.com/300x200/FF7F00/FFFFFF?text=Image+1" alt="Image 1">
+  </div>
+  <div class="image-item">
+    <img src="https://via.placeholder.com/300x200/FF7F00/FFFFFF?text=Image+2" alt="Image 2">
+  </div>
+  <div class="image-item">
+    <img src="https://via.placeholder.com/300x200/FF7F00/FFFFFF?text=Image+3" alt="Image 3">
+  </div>
+  <div class="image-item">
+    <img src="https://via.placeholder.com/300x200/FF7F00/FFFFFF?text=Image+4" alt="Image 4">
+  </div>
+  <div class="image-item">
+    <img src="https://via.placeholder.com/300x200/FF7F00/FFFFFF?text=Image+5" alt="Image 5">
+  </div>
+</div>
 
 </body>
 </html>
