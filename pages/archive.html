@@ -1,157 +1,147 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>
-gutter.couture by audrey everist
-</title>
-<link rel="stylesheet" type="text/css" href="normalize.css">
-<style>
-@font-face {
-  font-family: courier-classic;
-  src: url(Courier.ttf);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gutter.couture by Audrey Everist</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <style>
+        @font-face {
+            font-family: courier-classic;
+            src: url(Courier.ttf);
+        }
 
-body {
-  background-color: #FF7F00; /* Bright orange background */
-  color: #FFB84D; /* Light orange text */
-  font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
-}
+        body {
+            background-color: #FF7F00; /* Bright orange background */
+            color: #FFB84D; /* Light orange text */
+            font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
+            word-break: break-all;
+            line-height: 1.5;
+            font-size: 32px;
+        }
 
-/* Define the bright-pink class */
-.bright-pink {
-  color: #FF007F; /* Hot pink text */
-}
-  
-.bright-turquoise {
-    color: #40E0D0; /* Bright turquoise */
-}
+        /* Define the bright-pink class */
+        .bright-pink {
+            color: #FF007F; /* Hot pink text */
+        }
 
-.bright-royal-blue {
-    color: #4169E1; /* Royal blue */
-}
-  
-a, a:visited {
-color: #FFA500; /* Light orange color for links */
-}
+        .bright-turquoise {
+            color: #40E0D0; /* Bright turquoise */
+        }
 
-a:hover {
-color: black; /* Change color to black on hover */
-}
+        .bright-royal-blue {
+            color: #4169E1; /* Royal blue */
+        }
 
-.hl {
-font-weight: bold;
-}
+        a, a:visited {
+            color: #FFA500; /* Light orange color for links */
+        }
 
-a, a:visited {
-text-decoration: none; /* Ensure no underlines on links */
-}
+        a:hover {
+            color: black; /* Change color to black on hover */
+        }
 
-.BDTLL_status {
-cursor: pointer;
-display: inline;
-margin-right: 3px;
-width: 16px;
-height: 16px;
-}
+        .hl {
+            font-weight: bold;
+        }
 
-.BDTLL_Search_Popup {
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui;
+        a, a:visited {
+            text-decoration: none; /* Ensure no underlines on links */
+        }
 
-position: absolute !important;
-min-height: 70px !important;
+        /* Grid Layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px; /* Space between images */
+            margin-top: 20px;
+        }
 
-border-style: solid !important;
-border-width: 1px !important;
-border-radius: 5px !important;
+        .image-placeholder {
+            background-color: #ffffff; /* White background for placeholders */
+            color: #000000; /* Black text for placeholders */
+            height: 200px; /* Set height for the images */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-overflow: hidden !important;
-z-index: 999999999999999 !important;
+        /* Hover Effect: Change background when hovered over */
+        .image-placeholder:hover {
+            background-color: #FFD700; /* Change to a gold color on hover */
+        }
 
-background-color: rgb(255, 255, 255) !important;
-border-color: rgba(100, 100, 100, 0.9) !important;
-}
+        /* Responsive Grid: Stack images on smaller screens */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+            }
+        }
 
-.BDTLL_Search_Popup > .BDTLL_left_box {
-position: absolute !important;
-top: 0px !important;
-height: auto !important;
-bottom: 0px !important;
-
-left: 0px !important;
-width: 92px !important;
-
-background-size: 50px 50px !important;
-background-repeat: no-repeat !important;
-background-position: center !important;
-
-background-color: rgb(240, 242, 246) !important;
-}
-
-.BDTLL_Search_Popup > .BDTLL_right_box {
-display: inline-block !important;
-margin-left: 92px !important;
-width: 210pt !important;
-
-box-sizing: border-box !important;
-padding-left: 10px !important;
-padding-right: 5px !important;
-}
-
-.BDTLL_Search_Popup p {
-white-space: pre-wrap !important;
-word-wrap: normal !important;
-margin: 0px !important;
-padding: 0px !important;
-text-align: left;
-}
-
-/* Grid for images */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-gap: 10px;
-  padding: 20px;
-}
-
-.image-placeholder {
-  background-color: white; /* White fill-in for images */
-  width: 100%;
-  height: 150px; /* Adjust the height of the placeholder */
-  border: 2px solid #FF007F; /* Border color to match the theme */
-  text-align: center;
-  line-height: 150px; /* Centers text vertically */
-  color: #FF007F; /* Hot pink text color */
-  font-weight: bold;
-  font-size: 18px;
-}
-</style>
+        @media (max-width: 480px) {
+            .image-grid {
+                grid-template-columns: 1fr; /* 1 column on very small screens */
+            }
+        }
+    </style>
 </head>
-<body style="font-family: courier-classic, monospace; word-break: break-all; line-height: 1; font-size: 32px;">
+<body>
 
-<!-- Page content -->
-<p><span class="bright-pink">ARCHIVE</span></a>                             <span class="bright-turquoise">gutter.couture</span> </p>
+    <!-- Page content -->
+    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
 
-<!-- Grid of images (placeholders for now) -->
-<div class="image-grid">
-  <div class="image-placeholder">Image 1</div>
-  <div class="image-placeholder">Image 2</div>
-  <div class="image-placeholder">Image 3</div>
-  <div class="image-placeholder">Image 4</div>
-  <div class="image-placeholder">Image 5</div>
-  <div class="image-placeholder">Image 6</div>
-  <div class="image-placeholder">Image 7</div>
-  <div class="image-placeholder">Image 8</div>
-  <div class="image-placeholder">Image 9</div>
-  <div class="image-placeholder">Image 10</div>
-  <div class="image-placeholder">Image 11</div>
-  <div class="image-placeholder">Image 12</div>
-  <div class="image-placeholder">Image 13</div>
-  <div class="image-placeholder">Image 14</div>
-  <div class="image-placeholder">Image 15</div>
-</div>
+    <!-- Grid of images from assets/images folder -->
+    <div class="image-grid">
+        <div class="image-placeholder">
+            <img src="assets/images/concretetable.png" alt="welded red side table" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image2.jpg" alt="Description of Image 2" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image3.jpg" alt="Description of Image 3" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image4.jpg" alt="Description of Image 4" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image5.jpg" alt="Description of Image 5" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image6.jpg" alt="Description of Image 6" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image7.jpg" alt="Description of Image 7" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image8.jpg" alt="Description of Image 8" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image9.jpg" alt="Description of Image 9" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image10.jpg" alt="Description of Image 10" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image11.jpg" alt="Description of Image 11" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image12.jpg" alt="Description of Image 12" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image13.jpg" alt="Description of Image 13" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image14.jpg" alt="Description of Image 14" />
+        </div>
+        <div class="image-placeholder">
+            <img src="assets/images/image15.jpg" alt="Description of Image 15" />
+        </div>
+    </div>
 
-<p><a href="blantscollection.html"><span class="bright-pink">ARCHIVE</span></a></p>
+    <p><span class="bright-pink">ARCHIVE</span></p>
 
 </body>
 </html>
-
