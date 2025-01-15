@@ -49,7 +49,6 @@
             text-decoration: none; /* Ensure no underlines on links */
         }
 
-        /* Grid Layout */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
@@ -60,12 +59,18 @@
         .image-placeholder {
             background-color: #ffffff; /* White background for placeholders */
             color: #000000; /* Black text for placeholders */
-            height: 200px; /* Set height for the images */
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
             transition: background-color 0.3s ease-in-out;
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        .image-placeholder img {
+            width: 100%; /* Ensure the image stretches to fill the container width */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 400px; /* Optionally set a max height to keep images from growing too large */
+            object-fit: contain; /* Ensure images maintain their aspect ratio within the container */
         }
 
         /* Hover Effect: Change background when hovered over */
@@ -95,49 +100,49 @@
     <!-- Grid of images from assets/images folder -->
     <div class="image-grid">
         <div class="image-placeholder">
-            <img src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+            <img src="archiveimages/concretetable.png" alt="welded red side table concrete slab" />
         </div>
         <div class="image-placeholder">
             <img src="archiveimages/WheelEli.JPG" alt="wheel cut glass table" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image3.jpg" alt="Description of Image 3" />
+            <img src="archiveimages/image3.jpg" alt="Description of Image 3" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image4.jpg" alt="Description of Image 4" />
+            <img src="archiveimages/image4.jpg" alt="Description of Image 4" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image5.jpg" alt="Description of Image 5" />
+            <img src="archiveimages/image5.jpg" alt="Description of Image 5" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image6.jpg" alt="Description of Image 6" />
+            <img src="archiveimages/image6.jpg" alt="Description of Image 6" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image7.jpg" alt="Description of Image 7" />
+            <img src="archiveimages/image7.jpg" alt="Description of Image 7" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image8.jpg" alt="Description of Image 8" />
+            <img src="archiveimages/image8.jpg" alt="Description of Image 8" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image9.jpg" alt="Description of Image 9" />
+            <img src="archiveimages/image9.jpg" alt="Description of Image 9" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image10.jpg" alt="Description of Image 10" />
+            <img src="archiveimages/image10.jpg" alt="Description of Image 10" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image11.jpg" alt="Description of Image 11" />
+            <img src="archiveimages/image11.jpg" alt="Description of Image 11" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image12.jpg" alt="Description of Image 12" />
+            <img src="archiveimages/image12.jpg" alt="Description of Image 12" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image13.jpg" alt="Description of Image 13" />
+            <img src="archiveimages/image13.jpg" alt="Description of Image 13" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image14.jpg" alt="Description of Image 14" />
+            <img src="archiveimages/image14.jpg" alt="Description of Image 14" />
         </div>
         <div class="image-placeholder">
-            <img src="assets/images/image15.jpg" alt="Description of Image 15" />
+            <img src="archiveimages/image15.jpg" alt="Description of Image 15" />
         </div>
     </div>
 
