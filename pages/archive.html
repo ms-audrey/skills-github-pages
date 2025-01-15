@@ -14,39 +14,19 @@
         body {
             background-color: #FF7F00; /* Bright orange background */
             color: #FFB84D; /* Light orange text */
-            font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
-            word-break: break-all;
+            font-family: courier-classic, sans-serif;
+            word-break: break-word;
             line-height: 1.5;
             font-size: 32px;
         }
 
-        /* Define the bright-pink class */
-        .bright-pink {
-            color: #FF007F; /* Hot pink text */
-        }
-
-        .bright-turquoise {
-            color: #40E0D0; /* Bright turquoise */
-        }
-
-        .bright-royal-blue {
-            color: #4169E1; /* Royal blue */
-        }
-
         a, a:visited {
-            color: #FFA500; /* Light orange color for links */
+            color: #FFA500; /* Light orange links */
+            text-decoration: none;
         }
 
         a:hover {
-            color: black; /* Change color to black on hover */
-        }
-
-        .hl {
-            font-weight: bold;
-        }
-
-        a, a:visited {
-            text-decoration: none; /* Ensure no underlines on links */
+            color: black;
         }
 
         .image-grid {
@@ -54,169 +34,105 @@
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
             gap: 40px; /* Space between images */
             margin-top: 40px;
-            padding: 0 20px; /* Adds space between the images and the left & right edges of the page */
-
+            padding: 0 20px; /* Space between grid and edges */
         }
-        /* Styling for each image-wrapper */
-.image-wrapper {
-    position: relative; /* For proper positioning of the caption */
-    display: flex;
-    flex-direction: column; /* Stack image and caption vertically */
-    align-items: flex-start; /* Align items to the start */
-}
 
         .image-placeholder {
-            background-color: #ffffff; /* White background for placeholders */
-            color: #000000; /* Black text for placeholders */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease-in-out;
-            overflow: hidden; /* Prevent overflow */
-        }
-        
-        /* Styling for the caption */
-.caption {
-    writing-mode: vertical-rl; /* Makes text vertical */
-    text-orientation: upright; /* Ensures text is upright */
-    color: black; /* Black text color */
-    font-family: "Courier New", Courier, monospace; /* Typewriter-like font */
-    font-size: 16px; /* Adjust font size as needed */
-    margin-left: 10px; /* Adds spacing between caption and image */
-    margin-top: -400px; /* Align caption to start at the top of the image */
-    height: 100%; /* Spans the full height of the image */
-    display: flex;
-    align-items: flex-start;
-}
-    
-        .image-placeholder img {
-            width: 100%; /* Ensure the image stretches to fill the container width */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 400px; /* Optionally set a max height to keep images from growing too large */
-            object-fit: contain; /* Ensure images maintain their aspect ratio within the container */
+            position: relative; /* Enables positioning of captions */
         }
 
-        /* Hover Effect: Change background when hovered over */
-        .image-placeholder:hover {
-            background-color: #FFD700; /* Change to a gold color on hover */
+        /* Styling for images */
+        .image-placeholder img {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Optional: Limit image height */
+            object-fit: contain;
+        }
+
+        /* Caption styling */
+        .caption {
+            position: absolute;
+            top: 0;
+            right: -30px; /* Offset caption to the right of the image */
+            writing-mode: vertical-rl; /* Vertical text */
+            text-orientation: upright;
+            color: black;
+            font-family: "Courier New", Courier, monospace; /* Typewriter font */
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background */
+            padding: 5px;
+            border-radius: 4px;
         }
 
         /* Flip container */
-.flip-container {
-    perspective: 1000px; /* Adds perspective to create depth */
-    width: 100%; /* Adjust width as necessary */
-    height: auto; /* Adjust height as necessary */
-}
+        .flip-container {
+            perspective: 1000px; /* Creates 3D perspective */
+        }
 
-/* The flipper holds both images (front and back) */
-.flipper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s; /* Smooth transition for the flip */
-}
+        .flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
 
-/* Hide the back image by default */
-.front, .back {
-    backface-visibility: hidden; /* Prevent the back from showing when rotated */
-    position: absolute;
-    width: 100%;
-    height: auto; /* Adjust according to the aspect ratio */
-}
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
 
-/* The back image is rotated 180 degrees by default */
-.back {
-    transform: rotateY(180deg);
-}
+        .back {
+            transform: rotateY(180deg);
+        }
 
-/* Flip the container when hovering */
-.flip-container:hover .flipper {
-    transform: rotateY(180deg);
-}
+        .flip-container:hover .flipper {
+            transform: rotateY(180deg);
+        }
 
-/* Optional: Image styling (e.g., max-height) */
-.front, .back {
-    max-height: 400px; /* You can adjust this based on your preference */
-    object-fit: contain;
-}
-        /* Responsive Grid: Stack images on smaller screens */
+        /* Responsive Grid: Adjusts for smaller screens */
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
-                padding: 0 15px; /* Adjust padding for smaller screens */
-
+                grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (max-width: 480px) {
             .image-grid {
-                grid-template-columns: 1fr; /* 1 column on very small screens */
-                padding: 0 10px; /* Adjust padding for very small screens */
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span></p>
 
-    <!-- Page content -->
-    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
-
-    <!-- Grid of images from assets/images folder -->
     <div class="image-grid">
+        <!-- Example with flip effect -->
         <div class="image-placeholder flip-container">
-    <div class="flipper">
-        <!-- Front Image -->
-            <img src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
-        <!-- Back Image -->
-        <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
-            <div class="caption">welded scrap metal for found concrete slab / TX</div>
+            <div class="flipper">
+                <img class="front" src="../archiveimages/concretetable.png" alt="Welded red side table concrete slab">
+                <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1">
+            </div>
+            <div class="caption">Concrete Table</div>
         </div>
+
+        <!-- Example without flip effect -->
         <div class="image-placeholder">
-            <img src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
+            <img src="../archiveimages/chesseyes.png" alt="Chessboard flowers eyes surreal">
+            <div class="caption">Chess Eyes</div>
         </div>
+
         <div class="image-placeholder">
-            <img src="../archiveimages/wheelwhite.png" alt="wheel cut glass table" />
+            <img src="../archiveimages/wheelwhite.png" alt="Wheel cut glass table">
+            <div class="caption">Glass Table</div>
         </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/pot.png" alt="welded plant holder" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/ourlady.png" alt="holy alien tree stump surreal" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/fishcity.png" alt="flying fish new york city nyc manhattan" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/chameleon1.png" alt="chameleon pool frame exoskeleton" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings1.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings2.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings3.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings4.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/earrings6.png" alt="beer can earrings color upcycle" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/chameleon2.png" alt="chameleon pool ball billiards" />
-        </div>
-        <div class="image-placeholder">
-            <img src="../archiveimages/pants1.png" alt="black purple pants" />
-        </div>
+
+        <!-- Repeat for other images -->
     </div>
 
-    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
-
+    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span></p>
 </body>
 </html>
