@@ -49,6 +49,7 @@
             text-decoration: none; /* Ensure no underlines on links */
         }
 
+        /* Grid Layout */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
@@ -62,27 +63,27 @@
             position: relative; /* For proper positioning of the caption */
             display: flex;
             flex-direction: column; /* Stack image and caption vertically */
-            align-items: center; /* Align items to the center */
-            overflow: hidden;
-            background-color: #fff;
-            max-height: 500px; /* Limits max height */
+            align-items: flex-start; /* Align items to the start */
         }
 
         .image-placeholder {
+            background-color: #ffffff; /* White background for placeholders */
+            color: #000000; /* Black text for placeholders */
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* Prevent overflow of the images */
-            position: relative;
+            transition: background-color 0.3s ease-in-out;
+            overflow: hidden; /* Prevent overflow */
         }
 
         /* Styling for the caption */
         .caption {
+            text-align: center; /* Center the caption text */
             color: black; /* Black text color */
             font-family: "Courier New", Courier, monospace; /* Typewriter-like font */
             font-size: 16px; /* Adjust font size as needed */
-            margin-top: 10px; /* Adds spacing between caption and image */
-            text-align: center; /* Centers the caption under the image */
+            margin-top: 10px; /* Adds spacing between image and caption */
+            width: 100%; /* Ensure the caption spans the entire image width */
         }
 
         .image-placeholder img {
@@ -91,16 +92,11 @@
             object-fit: contain; /* Ensure images maintain their aspect ratio within the container */
         }
 
-        /* Hover Effect: Change background when hovered over */
-        .image-placeholder:hover {
-            background-color: #FFD700; /* Change to a gold color on hover */
-        }
-
         /* Flip container */
         .flip-container {
             perspective: 1000px; /* Adds perspective to create depth */
             width: 100%; /* Adjust width as necessary */
-            height: 100%; /* Adjust height as necessary */
+            height: auto; /* Adjust height as necessary */
         }
 
         /* The flipper holds both images (front and back) */
@@ -117,7 +113,7 @@
             backface-visibility: hidden; /* Prevent the back from showing when rotated */
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: auto; /* Adjust according to the aspect ratio */
         }
 
         /* The back image is rotated 180 degrees by default */
@@ -128,6 +124,12 @@
         /* Flip the container when hovering */
         .flip-container:hover .flipper {
             transform: rotateY(180deg);
+        }
+
+        /* Optional: Image styling (e.g., max-height) */
+        .front, .back {
+            max-height: 400px; /* You can adjust this based on your preference */
+            object-fit: contain;
         }
 
         /* Responsive Grid: Stack images on smaller screens */
@@ -149,81 +151,61 @@
 <body>
 
     <!-- Page content -->
-    <p><span class="bright-pink"><a href="index.html">ARCHIVE</a></span> <span class="bright-turquoise"><a href="index.html">gutter.couture</a></span></p>
+    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
 
     <!-- Grid of images from assets/images folder -->
     <div class="image-grid">
-        <!-- Flip effect for chameleon images -->
-        <div class="image-wrapper">
-            <div class="flip-container">
-                <div class="flipper">
-                    <img class="front" src="../archiveimages/chameleon1.png" alt="Chameleon Pool Frame Exoskeleton">
-                    <img class="back" src="../archiveimages/chameleon2.png" alt="Chameleon Pool Ball Billiards">
-                </div>
+        <!-- Flip Image (Chameleon images) -->
+        <div class="image-wrapper flip-container">
+            <div class="flipper">
+                <img class="front" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+                <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
             </div>
-            <div class="caption">Chameleon Pool Frame</div>
+            <div class="caption">welded scrap metal for found concrete slab / TX</div>
         </div>
 
-        <!-- Non-flipping images -->
+        <!-- Other Images (Non-flip) -->
         <div class="image-wrapper">
-            <img src="../archiveimages/concretetable.png" alt="Welded Red Side Table Concrete Slab">
-            <div class="caption">Welded Scrap Metal for Found Concrete Slab</div>
+            <img src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
+            <div class="caption">chess board flowers eyes surreal</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/chesseyes.png" alt="Chess Board Flowers Eyes Surreal">
-            <div class="caption">Chess Board Flowers Eyes</div>
+            <img src="../archiveimages/wheelwhite.png" alt="wheel cut glass table" />
+            <div class="caption">wheel cut glass table</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/wheelwhite.png" alt="Wheel Cut Glass Table">
-            <div class="caption">Wheel Cut Glass Table</div>
+            <img src="../archiveimages/pot.png" alt="welded plant holder" />
+            <div class="caption">welded plant holder</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/pot.png" alt="Welded Plant Holder">
-            <div class="caption">Welded Plant Holder</div>
+            <img src="../archiveimages/ourlady.png" alt="holy alien tree stump surreal" />
+            <div class="caption">holy alien tree stump surreal</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/ourlady.png" alt="Holy Alien Tree Stump Surreal">
-            <div class="caption">Holy Alien Tree Stump</div>
+            <img src="../archiveimages/fishcity.png" alt="flying fish new york city nyc manhattan" />
+            <div class="caption">flying fish new york city nyc manhattan</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/fishcity.png" alt="Flying Fish New York City NYC Manhattan">
-            <div class="caption">Flying Fish New York City</div>
+            <img src="../archiveimages/chameleon1.png" alt="chameleon pool frame exoskeleton" />
+            <div class="caption">chameleon pool frame exoskeleton</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings1.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
+            <img src="../archiveimages/earrings1.png" alt="beer can earrings color upcycle" />
+            <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings2.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
+            <img src="../archiveimages/earrings2.png" alt="beer can earrings color upcycle" />
+            <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings3.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
+            <img src="../archiveimages/earrings3.png" alt="beer can earrings color upcycle" />
+            <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings4.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
+            <img src="../archiveimages/earrings4.png" alt="beer can earrings color upcycle" />
+            <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings5.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
+            <img src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
+            <div class="caption">beer can earrings color upcycle</div>
         </div>
-        <div class="image-wrapper">
-            <img src="../archiveimages/earrings6.png" alt="Beer Can Earrings Color Upcycle">
-            <div class="caption">Beer Can Earrings</div>
-        </div>
-        <div class="image-wrapper">
-            <img src="../archiveimages/chameleon2.png" alt="Chameleon Pool Ball Billiards">
-            <div class="caption">Chameleon Pool Ball</div>
-        </div>
-        <div class="image-wrapper">
-            <img src="../archiveimages/pants1.png" alt="Black Purple Pants">
-            <div class="caption">Black Purple Pants</div>
-        </div>
-    </div>
-
-    <p><span class="bright-pink"><a href="index.html">ARCHIVE</a></span></p>
-
-</body>
-</html>
