@@ -6,6 +6,7 @@
     <title>gutter.couture by Audrey Everist</title>
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <style>
+        /* Previous styles remain the same until image-wrapper */
         @font-face {
             font-family: courier-classic;
             src: url(Courier.ttf);
@@ -40,7 +41,7 @@
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 30px;
+            gap: 40px; /* Increased gap to accommodate captions */
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
@@ -50,12 +51,13 @@
         .image-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 100%;
+            /* Changed from padding-top to aspect-ratio for better control */
+            aspect-ratio: 1;
             perspective: 1000px;
             transition: transform 0.3s ease;
+            margin-bottom: 25px; /* Added margin for caption space */
         }
 
-        /* Common hover effects for all images */
         .image-wrapper:hover {
             transform: scale(1.05);
             z-index: 1;
@@ -119,11 +121,11 @@
             color: black;
             font-family: "Courier New", Courier, monospace;
             font-size: 16px;
-            margin-top: 10px;
             position: absolute;
-            bottom: -30px;
+            width: 100%;
+            bottom: -25px; /* Adjusted to be closer to image */
             left: 0;
-            right: 0;
+            padding-top: 5px;
         }
 
         @media (max-width: 768px) {
@@ -141,6 +143,7 @@
         }
     </style>
 </head>
+<!-- Rest of the HTML remains exactly the same -->
 <body>
     <header class="header">
         <span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span>
