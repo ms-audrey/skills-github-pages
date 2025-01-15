@@ -64,22 +64,20 @@
             flex-direction: column; /* Stack image and caption vertically */
             align-items: center; /* Align items to the center */
             overflow: hidden;
+            background-color: #fff;
+            max-height: 500px; /* Limits max height */
         }
 
         .image-placeholder {
-            background-color: #ffffff; /* White background for placeholders */
-            color: #000000; /* Black text for placeholders */
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s ease-in-out;
-            overflow: hidden; /* Prevent overflow */
+            overflow: hidden; /* Prevent overflow of the images */
+            position: relative;
         }
 
         /* Styling for the caption */
         .caption {
-            writing-mode: horizontal-tb; /* Makes text horizontal */
-            text-orientation: upright; /* Ensures text is upright */
             color: black; /* Black text color */
             font-family: "Courier New", Courier, monospace; /* Typewriter-like font */
             font-size: 16px; /* Adjust font size as needed */
@@ -90,7 +88,6 @@
         .image-placeholder img {
             width: 100%; /* Ensure the image stretches to fill the container width */
             height: auto; /* Maintain aspect ratio */
-            max-height: 400px; /* Optionally set a max height to keep images from growing too large */
             object-fit: contain; /* Ensure images maintain their aspect ratio within the container */
         }
 
@@ -103,7 +100,7 @@
         .flip-container {
             perspective: 1000px; /* Adds perspective to create depth */
             width: 100%; /* Adjust width as necessary */
-            height: auto; /* Adjust height as necessary */
+            height: 100%; /* Adjust height as necessary */
         }
 
         /* The flipper holds both images (front and back) */
@@ -120,7 +117,7 @@
             backface-visibility: hidden; /* Prevent the back from showing when rotated */
             position: absolute;
             width: 100%;
-            height: auto; /* Adjust according to the aspect ratio */
+            height: 100%;
         }
 
         /* The back image is rotated 180 degrees by default */
@@ -131,12 +128,6 @@
         /* Flip the container when hovering */
         .flip-container:hover .flipper {
             transform: rotateY(180deg);
-        }
-
-        /* Optional: Image styling (e.g., max-height) */
-        .front, .back {
-            max-height: 400px; /* You can adjust this based on your preference */
-            object-fit: contain;
         }
 
         /* Responsive Grid: Stack images on smaller screens */
@@ -158,7 +149,7 @@
 <body>
 
     <!-- Page content -->
-    <p><span class="bright-pink"><a href="index.html">ARCHIVE</a></span> <span class="bright-turquoise"><a href="index.html">gutter.couture</a></span> </p>
+    <p><span class="bright-pink"><a href="index.html">ARCHIVE</a></span> <span class="bright-turquoise"><a href="index.html">gutter.couture</a></span></p>
 
     <!-- Grid of images from assets/images folder -->
     <div class="image-grid">
