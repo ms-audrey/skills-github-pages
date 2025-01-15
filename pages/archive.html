@@ -23,10 +23,19 @@
 
         .bright-pink {
             color: #FF007F; /* Hot pink text */
+            font-size: 36px; /* Larger size for visibility */
         }
 
         .bright-turquoise {
             color: #40E0D0; /* Bright turquoise */
+            font-size: 36px; /* Larger size for visibility */
+        }
+
+        /* Styling for the header text */
+        p {
+            font-size: 36px; /* Larger text for the top header */
+            text-align: center; /* Center align the text */
+            margin-top: 20px; /* Add some margin to the top */
         }
 
         .image-grid {
@@ -35,6 +44,8 @@
             gap: 30px; /* Space between images */
             padding: 20px;
             margin-top: 40px;
+            justify-items: center; /* Ensure images are centered within grid */
+            align-items: start; /* Align the items to the top of their cells */
         }
 
         .image-wrapper {
@@ -43,6 +54,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            width: 100%; /* Ensure each wrapper takes up full width of grid column */
         }
 
         .image-wrapper img {
@@ -60,6 +72,7 @@
             margin-top: 10px;
         }
 
+        /* Responsive layout */
         @media (max-width: 768px) {
             .image-grid {
                 grid-template-columns: 1fr 1fr; /* 2 columns for medium screens */
