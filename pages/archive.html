@@ -11,17 +11,22 @@
             font-family: courier-classic;
             src: url(Courier.ttf);
         }
+body {
+    background-color: #FF7F00;
+    color: #FFB84D;
+    font-family: courier-classic, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
 
-        body {
-            background-color: #FF7F00;
-            color: #FFB84D;
-            font-family: courier-classic, sans-serif;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-
+.header-wrapper,
+.footer-wrapper {
+    padding: 80px 20px;
+}
+.content-wrapper {
+    padding: 0 20px;
+}
         .header {
             padding-left: 20px;
             text-align: left;
@@ -154,11 +159,13 @@
 </head>
 <!-- Rest of the HTML remains exactly the same -->
 <body>
-    <header>
-    <span class="bright-pink">ARCHIVE</span> 
-    <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
-</header>
+    <div class="header-wrapper">
+        <header>
+            <span class="bright-pink">ARCHIVE</span>
+            <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
+        </header>
 
+     <div class="content-wrapper">
     <div class="image-grid">
         <!-- Flipping Image -->
         <div class="image-wrapper can-flip">
@@ -216,12 +223,17 @@
         <div class="image-wrapper">
             <img class="static-image" src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
             <div class="caption">scrap brass</div>
-        </div>
+        </div>      
     </div>
-</body>
+    </div>
+        
+           <div class="footer-wrapper">
         <footer>
-    <span class="bright-pink">ARCHIVE</span> 
-    <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
-</footer>
+            <span class="bright-pink">ARCHIVE</span>
+            <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
+        </footer>
+         
+</body>
+    
     
 </html>
