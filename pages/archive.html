@@ -54,7 +54,16 @@
             grid-template-columns: repeat(3, 1fr); /* 3 columns */
             gap: 40px; /* Space between images */
             margin-top: 40px;
+            padding: 0 20px; /* Adds space between the images and the left & right edges of the page */
+
         }
+        /* Styling for each image-wrapper */
+.image-wrapper {
+    position: relative; /* For proper positioning of the caption */
+    display: flex;
+    flex-direction: column; /* Stack image and caption vertically */
+    align-items: flex-start; /* Align items to the start */
+}
 
         .image-placeholder {
             background-color: #ffffff; /* White background for placeholders */
@@ -65,7 +74,21 @@
             transition: background-color 0.3s ease-in-out;
             overflow: hidden; /* Prevent overflow */
         }
-
+        
+        /* Styling for the caption */
+.caption {
+    writing-mode: vertical-rl; /* Makes text vertical */
+    text-orientation: upright; /* Ensures text is upright */
+    color: black; /* Black text color */
+    font-family: "Courier New", Courier, monospace; /* Typewriter-like font */
+    font-size: 16px; /* Adjust font size as needed */
+    margin-left: 10px; /* Adds spacing between caption and image */
+    margin-top: -400px; /* Align caption to start at the top of the image */
+    height: 100%; /* Spans the full height of the image */
+    display: flex;
+    align-items: flex-start;
+}
+    
         .image-placeholder img {
             width: 100%; /* Ensure the image stretches to fill the container width */
             height: auto; /* Maintain aspect ratio */
@@ -78,16 +101,58 @@
             background-color: #FFD700; /* Change to a gold color on hover */
         }
 
+        /* Flip container */
+.flip-container {
+    perspective: 1000px; /* Adds perspective to create depth */
+    width: 100%; /* Adjust width as necessary */
+    height: auto; /* Adjust height as necessary */
+}
+
+/* The flipper holds both images (front and back) */
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s; /* Smooth transition for the flip */
+}
+
+/* Hide the back image by default */
+.front, .back {
+    backface-visibility: hidden; /* Prevent the back from showing when rotated */
+    position: absolute;
+    width: 100%;
+    height: auto; /* Adjust according to the aspect ratio */
+}
+
+/* The back image is rotated 180 degrees by default */
+.back {
+    transform: rotateY(180deg);
+}
+
+/* Flip the container when hovering */
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+/* Optional: Image styling (e.g., max-height) */
+.front, .back {
+    max-height: 400px; /* You can adjust this based on your preference */
+    object-fit: contain;
+}
         /* Responsive Grid: Stack images on smaller screens */
         @media (max-width: 768px) {
             .image-grid {
                 grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+                padding: 0 15px; /* Adjust padding for smaller screens */
+
             }
         }
 
         @media (max-width: 480px) {
             .image-grid {
                 grid-template-columns: 1fr; /* 1 column on very small screens */
+                padding: 0 10px; /* Adjust padding for very small screens */
             }
         }
     </style>
@@ -99,8 +164,13 @@
 
     <!-- Grid of images from assets/images folder -->
     <div class="image-grid">
-        <div class="image-placeholder">
+        <div class="image-placeholder flip-container">
+    <div class="flipper">
+        <!-- Front Image -->
             <img src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+        <!-- Back Image -->
+        <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
+            <div class="caption">welded scrap metal for found concrete slab / TX</div>
         </div>
         <div class="image-placeholder">
             <img src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
