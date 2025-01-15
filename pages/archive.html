@@ -14,17 +14,13 @@
         body {
             background-color: #FF7F00; /* Bright orange background */
             color: #FFB84D; /* Light orange text */
-            font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
-            word-break: break-all;
-            line-height: 1.5;
-            font-size: 32px;
-            margin: 0; /* Remove any default margin */
-            padding: 0; /* Remove any default padding */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            font-family: courier-classic, sans-serif; /* Custom font */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
-        /* Define the bright-pink class */
         .bright-pink {
             color: #FF007F; /* Hot pink text */
         }
@@ -33,124 +29,46 @@
             color: #40E0D0; /* Bright turquoise */
         }
 
-        .bright-royal-blue {
-            color: #4169E1; /* Royal blue */
-        }
-
-        a, a:visited {
-            color: #FFA500; /* Light orange color for links */
-        }
-
-        a:hover {
-            color: black; /* Change color to black on hover */
-        }
-
-        .hl {
-            font-weight: bold;
-        }
-
-        a, a:visited {
-            text-decoration: none; /* Ensure no underlines on links */
-        }
-
-        /* Grid Layout */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-resizing columns */
-            gap: 40px; /* Space between images */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-resizing grid */
+            gap: 30px; /* Space between images */
+            padding: 20px;
             margin-top: 40px;
-            padding: 0 20px; /* Adds space between the images and the left & right edges of the page */
-            max-width: 100%; /* Ensure it doesn't exceed the page width */
-            overflow: hidden; /* Prevent overflow */
         }
 
-        /* Styling for each image-wrapper */
         .image-wrapper {
-            position: relative; /* For proper positioning of the caption */
             display: flex;
-            flex-direction: column; /* Stack image and caption vertically */
-            align-items: center; /* Align items centrally */
-            width: 100%; /* Ensure wrapper takes up the full width of the grid cell */
-        }
-
-        .image-placeholder {
-            background-color: #ffffff; /* White background for placeholders */
-            color: #000000; /* Black text for placeholders */
-            display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            transition: background-color 0.3s ease-in-out;
-            overflow: hidden; /* Prevent overflow */
-        }
-
-        /* Styling for the caption */
-        .caption {
-            text-align: center; /* Center the caption text */
-            color: black; /* Black text color */
-            font-family: "Courier New", Courier, monospace; /* Typewriter-like font */
-            font-size: 16px; /* Adjust font size as needed */
-            margin-top: 10px; /* Adds spacing between image and caption */
-            width: 100%; /* Ensure the caption spans the entire image width */
-        }
-
-        .image-placeholder img {
-            width: 100%; /* Ensure the image stretches to fill the container width */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: contain; /* Ensure images maintain their aspect ratio within the container */
-        }
-
-        /* Flip container */
-        .flip-container {
-            perspective: 1000px; /* Adds perspective to create depth */
-            width: 100%; /* Adjust width as necessary */
-            height: auto; /* Adjust height as necessary */
-        }
-
-        /* The flipper holds both images (front and back) */
-        .flipper {
+            justify-content: center;
             position: relative;
+        }
+
+        .image-wrapper img {
             width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.6s; /* Smooth transition for the flip */
+            height: auto;
+            max-width: 100%;
+            object-fit: contain; /* Maintain aspect ratio */
         }
 
-        /* Hide the back image by default */
-        .front, .back {
-            backface-visibility: hidden; /* Prevent the back from showing when rotated */
-            position: absolute;
-            width: 100%;
-            height: auto; /* Adjust according to the aspect ratio */
+        .caption {
+            text-align: center;
+            color: black;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
-        /* The back image is rotated 180 degrees by default */
-        .back {
-            transform: rotateY(180deg);
-        }
-
-        /* Flip the container when hovering */
-        .flip-container:hover .flipper {
-            transform: rotateY(180deg);
-        }
-
-        /* Optional: Image styling (e.g., max-height) */
-        .front, .back {
-            max-height: 400px; /* You can adjust this based on your preference */
-            object-fit: contain;
-        }
-
-        /* Responsive Grid: Stack images on smaller screens */
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-                padding: 0 15px; /* Adjust padding for smaller screens */
+                grid-template-columns: 1fr 1fr; /* 2 columns for medium screens */
             }
         }
 
         @media (max-width: 480px) {
             .image-grid {
-                grid-template-columns: 1fr; /* 1 column on very small screens */
-                padding: 0 10px; /* Adjust padding for very small screens */
+                grid-template-columns: 1fr; /* 1 column for small screens */
             }
         }
     </style>
@@ -160,18 +78,20 @@
     <!-- Page content -->
     <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
 
-    <!-- Grid of images from assets/images folder -->
+    <!-- Grid of images -->
     <div class="image-grid">
-        <!-- Flip Image (Chameleon images) -->
-        <div class="image-wrapper flip-container">
-            <div class="flipper">
-                <img class="front" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
-                <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
+        <!-- Flip Image (Chameleon) -->
+        <div class="image-wrapper">
+            <div class="flip-container">
+                <div class="flipper">
+                    <img class="front" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+                    <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
+                </div>
             </div>
             <div class="caption">welded scrap metal for found concrete slab / TX</div>
         </div>
 
-        <!-- Other Images (Non-flip) -->
+        <!-- Other Images -->
         <div class="image-wrapper">
             <img src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
             <div class="caption">chess board flowers eyes surreal</div>
