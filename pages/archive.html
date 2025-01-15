@@ -12,56 +12,74 @@
         }
 
         body {
-            background-color: #FF7F00; /* Bright orange background */
-            color: #FFB84D; /* Light orange text */
-            font-family: courier-classic, sans-serif; /* Custom font */
+            background-color: #FF7F00;
+            color: #FFB84D;
+            font-family: courier-classic, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             box-sizing: border-box;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding-left: 20px;
+            text-align: left;
+            margin-bottom: 40px;
         }
 
         .bright-pink {
-            color: #FF007F; /* Hot pink text */
-            font-size: 36px; /* Larger size for visibility */
+            color: #FF007F;
+            font-size: 36px;
         }
 
         .bright-turquoise {
-            color: #40E0D0; /* Bright turquoise */
-            font-size: 36px; /* Larger size for visibility */
-        }
-
-        /* Styling for the header text */
-        p {
-            font-size: 36px; /* Larger text for the top header */
-            text-align: center; /* Center align the text */
-            margin-top: 20px; /* Add some margin to the top */
+            color: #40E0D0;
+            font-size: 36px;
         }
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
-            gap: 30px; /* Space between images */
-            padding: 20px;
-            margin-top: 40px;
-            justify-items: center; /* Ensure images are centered within grid */
-            align-items: start; /* Align the items to the top of their cells */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .image-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            width: 100%; /* Ensure each wrapper takes up full width of grid column */
+            aspect-ratio: 1;
+            width: 100%;
+            perspective: 1000px;
         }
 
-        .image-wrapper img {
+        .flipper {
+            position: relative;
             width: 100%;
-            height: auto;
-            max-width: 100%;
-            object-fit: contain; /* Maintain aspect ratio */
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .image-wrapper.can-flip:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            object-fit: cover;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .static-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .caption {
@@ -72,87 +90,82 @@
             margin-top: 10px;
         }
 
-        /* Responsive layout */
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns for medium screens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
             .image-grid {
-                grid-template-columns: 1fr; /* 1 column for small screens */
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span>
+    </header>
 
-    <!-- Page content -->
-    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
-
-    <!-- Grid of images -->
     <div class="image-grid">
-        <!-- Flip Image (Chameleon) -->
-        <div class="image-wrapper">
-            <div class="flip-container">
-                <div class="flipper">
-                    <img class="front" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
-                    <img class="back" src="../archiveimages/chameleon2.png" alt="Back Image 1" />
-                </div>
+        <!-- Flipping Image -->
+        <div class="image-wrapper can-flip">
+            <div class="flipper">
+                <img class="front" src="../archiveimages/chameleon1.png" alt="chameleon pool frame exoskeleton" />
+                <img class="back" src="../archiveimages/chameleon2.png" alt="Back view of chameleon" />
             </div>
-            <div class="caption">welded scrap metal for found concrete slab / TX</div>
+            <div class="caption">chameleon pool frame exoskeleton</div>
         </div>
 
-        <!-- Other Images -->
+        <!-- Static Images -->
         <div class="image-wrapper">
-            <img src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
+            <img class="static-image" src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
             <div class="caption">chess board flowers eyes surreal</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/wheelwhite.png" alt="wheel cut glass table" />
+            <img class="static-image" src="../archiveimages/wheelwhite.png" alt="wheel cut glass table" />
             <div class="caption">wheel cut glass table</div>
         </div>
 
         <div class="image-wrapper">
-            <img src="../archiveimages/pot.png" alt="welded plant holder" />
+            <img class="static-image" src="../archiveimages/pot.png" alt="welded plant holder" />
             <div class="caption">welded plant holder</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/ourlady.png" alt="holy alien tree stump surreal" />
+            <img class="static-image" src="../archiveimages/ourlady.png" alt="holy alien tree stump surreal" />
             <div class="caption">holy alien tree stump surreal</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/fishcity.png" alt="flying fish new york city nyc manhattan" />
+            <img class="static-image" src="../archiveimages/fishcity.png" alt="flying fish new york city nyc manhattan" />
             <div class="caption">flying fish new york city nyc manhattan</div>
         </div>
 
         <div class="image-wrapper">
-            <img src="../archiveimages/chameleon1.png" alt="chameleon pool frame exoskeleton" />
-            <div class="caption">chameleon pool frame exoskeleton</div>
+            <img class="static-image" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+            <div class="caption">welded scrap metal for found concrete slab / TX</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings1.png" alt="beer can earrings color upcycle" />
+            <img class="static-image" src="../archiveimages/earrings1.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings2.png" alt="beer can earrings color upcycle" />
+            <img class="static-image" src="../archiveimages/earrings2.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
 
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings3.png" alt="beer can earrings color upcycle" />
+            <img class="static-image" src="../archiveimages/earrings3.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings4.png" alt="beer can earrings color upcycle" />
+            <img class="static-image" src="../archiveimages/earrings4.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
         <div class="image-wrapper">
-            <img src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
+            <img class="static-image" src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
     </div>
-
 </body>
 </html>
