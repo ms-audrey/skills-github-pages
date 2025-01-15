@@ -18,6 +18,10 @@
             word-break: break-all;
             line-height: 1.5;
             font-size: 32px;
+            margin: 0; /* Remove any default margin */
+            padding: 0; /* Remove any default padding */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         /* Define the bright-pink class */
@@ -52,10 +56,12 @@
         /* Grid Layout */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-resizing columns */
             gap: 40px; /* Space between images */
             margin-top: 40px;
             padding: 0 20px; /* Adds space between the images and the left & right edges of the page */
+            max-width: 100%; /* Ensure it doesn't exceed the page width */
+            overflow: hidden; /* Prevent overflow */
         }
 
         /* Styling for each image-wrapper */
@@ -63,7 +69,8 @@
             position: relative; /* For proper positioning of the caption */
             display: flex;
             flex-direction: column; /* Stack image and caption vertically */
-            align-items: flex-start; /* Align items to the start */
+            align-items: center; /* Align items centrally */
+            width: 100%; /* Ensure wrapper takes up the full width of the grid cell */
         }
 
         .image-placeholder {
@@ -135,7 +142,7 @@
         /* Responsive Grid: Stack images on smaller screens */
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
                 padding: 0 15px; /* Adjust padding for smaller screens */
             }
         }
@@ -209,3 +216,7 @@
             <img src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
             <div class="caption">beer can earrings color upcycle</div>
         </div>
+    </div>
+
+</body>
+</html>
