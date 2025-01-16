@@ -1,8 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Previous head section remains exactly the same -->
 <head>
-    <!-- Previous head content remains exactly the same -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gutter.couture by Audrey Everist</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <style>
+        @font-face {
+            font-family: courier-classic;
+            src: url(Courier.ttf);
+        }
+
+        body {
+            background-color: #FF7F00;
+            color: #FFB84D;
+            font-family: courier-classic, sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .header-wrapper,
+        .footer-wrapper {
+            padding: 60px 20px;
+        }
+
+        .content-wrapper {
+            padding: 60px 20px 0;
+        }
+
+        .section-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0;
+        }
+
+        .bright-pink {
+            color: #FF007F;
+            font-size: 36px;
+        }
+
+        .bright-turquoise {
+            color: #40E0D0;
+            font-size: 36px;
+        }
+
+        .section-heading {
+            color: #FF007F;
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-family: courier-classic, sans-serif;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 40px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+            margin-bottom: 25px;
+        }
+
+        .image-wrapper:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .image-wrapper:hover .front,
+        .image-wrapper:hover .static-image {
+            border: 8px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .flipper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .image-wrapper.can-flip:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            object-fit: contain;
+            background-color: transparent;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            border: 8px solid transparent;
+        }
+
+        .image-wrapper.can-flip:hover .back {
+            border: 8px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .static-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            border: 8px solid transparent;
+        }
+
+        .caption {
+            text-align: center;
+            color: black;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            position: absolute;
+            width: 100%;
+            bottom: -25px;
+            left: 0;
+            padding-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <div class="header-wrapper">
@@ -46,7 +202,7 @@
             </div>
         </div>
 
-        <!-- Functional Section - remains exactly the same -->
+        <!-- Functional Section -->
         <div class="section-wrapper">
             <div class="section-heading">FUNCTIONAL</div>
             <div class="image-grid">
@@ -67,7 +223,7 @@
             </div>
         </div>
 
-        <!-- Wearable Section - remains exactly the same -->
+        <!-- Wearable Section -->
         <div class="section-wrapper">
             <div class="section-heading">WEARABLE</div>
             <div class="image-grid">
