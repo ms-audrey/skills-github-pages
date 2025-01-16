@@ -12,136 +12,259 @@
         }
 
         body {
-            background-color: #FF7F00; /* Bright orange background */
-            color: #FFB84D; /* Light orange text */
-            font-family: courier-classic, sans-serif; /* Optional: Set font to your custom font */
-            word-break: break-all;
-            line-height: 1.5;
-            font-size: 32px;
+            background-color: #FF7F00;
+            color: #FFB84D;
+            font-family: courier-classic, sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        /* Define the bright-pink class */
+        .header-wrapper,
+        .footer-wrapper {
+            padding: 60px 20px;
+        }
+
+        .content-wrapper {
+            padding: 60px 20px 0;
+        }
+
+        .section-wrapper {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0;
+        }
+
         .bright-pink {
-            color: #FF007F; /* Hot pink text */
+            color: #FF007F;
+            font-size: 36px;
         }
 
         .bright-turquoise {
-            color: #40E0D0; /* Bright turquoise */
+            color: #40E0D0;
+            font-size: 36px;
+        }
+         
+        .bright-lilac {
+            color: #D891EF;
+            font-size: 36px;
         }
 
-        .bright-royal-blue {
-            color: #4169E1; /* Royal blue */
+        .section-heading {
+            color: #FF007F;
+            font-size: 46px;
+            margin-bottom: 20px;
+            font-family: courier-classic, sans-serif;
         }
 
-        a, a:visited {
-            color: #FFA500; /* Light orange color for links */
-        }
-
-        a:hover {
-            color: black; /* Change color to black on hover */
-        }
-
-        .hl {
-            font-weight: bold;
-        }
-
-        a, a:visited {
-            text-decoration: none; /* Ensure no underlines on links */
-        }
-
-        /* Grid Layout */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns */
-            gap: 20px; /* Space between images */
-            margin-top: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 40px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
         }
 
-        .image-placeholder {
-            background-color: #ffffff; /* White background for placeholders */
-            color: #000000; /* Black text for placeholders */
-            height: 200px; /* Set height for the images */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            transition: background-color 0.3s ease-in-out;
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+            margin-bottom: 25px;
         }
 
-        /* Hover Effect: Change background when hovered over */
-        .image-placeholder:hover {
-            background-color: #FFD700; /* Change to a gold color on hover */
+        .image-wrapper:hover {
+            transform: scale(1.05);
+            z-index: 1;
         }
 
-        /* Responsive Grid: Stack images on smaller screens */
+        .image-wrapper:hover .front,
+        .image-wrapper:hover .static-image {
+            border: 8px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .flipper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .image-wrapper.can-flip:hover .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            object-fit: contain;
+            background-color: transparent;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+            border: 8px solid transparent;
+        }
+
+        .image-wrapper.can-flip:hover .back {
+            border: 8px solid #FFD700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        .static-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            border: 8px solid transparent;
+        }
+
+        .caption {
+            text-align: center;
+            color: black;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            position: absolute;
+            width: 100%;
+            bottom: -25px;
+            left: 0;
+            padding-top: 5px;
+        }
+
         @media (max-width: 768px) {
             .image-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+                grid-template-columns: repeat(2, 1fr);
+                width: 95%;
             }
         }
 
         @media (max-width: 480px) {
             .image-grid {
-                grid-template-columns: 1fr; /* 1 column on very small screens */
+                grid-template-columns: 1fr;
+                width: 100%;
             }
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
+    <div class="header-wrapper">
+        <header>
+            <span class="bright-pink">ARCHIVE</span>
+            <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
+        </header>
+    </div>
 
-    <!-- Page content -->
-    <p><span class="bright-pink">ARCHIVE</span> <span class="bright-turquoise">gutter.couture</span> </p>
+    <div class="content-wrapper">
+        <!-- Visual Section -->
+        <div class="section-wrapper">
+            <div class="section-heading">VISUAL</div>
+            <div class="image-grid">
+                <!-- Chameleon -->
+                <div class="image-wrapper can-flip">
+                    <div class="flipper">
+                        <img class="front" src="../archiveimages/chameleon1.png" alt="chameleon pool frame exoskeleton" />
+                        <img class="back" src="../archiveimages/chameleon2.png" alt="Back view of chameleon" />
+                    </div>
+                    <div class="caption">cardboard/fishing wire/pool ball rack</div>
+                </div>
 
-    <!-- Grid of images from assets/images folder -->
-    <div class="image-grid">
-        <div class="image-placeholder">
-            <img src="assets/archive%20images/concretetable.png" alt="welded red side table" />
+                <!-- Chess board -->
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/chesseyes.png" alt="chess board flowers eyes surreal" />
+                    <div class="caption">chess board/acrylic</div>
+                </div>
+
+                <!-- Tree stump -->
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/ourlady.png" alt="holy alien tree stump surreal" />
+                    <div class="caption">tree stump/acrylic</div>
+                </div>
+
+                <!-- Fish City -->
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/fishcity.png" alt="flying fish new york city nyc manhattan" />
+                    <div class="caption">magazine cutout/wood print</div>
+                </div>
+            </div>
         </div>
-        <div class="image-placeholder">
-            <img src="assets/archive%20images/WheelEli.JPG" alt="wheel" />
+
+        <!-- Functional Section -->
+        <div class="section-wrapper">
+            <div class="section-heading">FUNCTIONAL</div>
+            <div class="image-grid">
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/wheelwhite.png" alt="wheel cut glass table" />
+                    <div class="caption">found car wheels/cut glass</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/pot.png" alt="welded plant holder" />
+                    <div class="caption">helium tank/scrap metal</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/concretetable.png" alt="welded red side table concrete slab" />
+                    <div class="caption">scrap metal/found concrete</div>
+                </div>
+            </div>
         </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image3.jpg" alt="Description of Image 3" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image4.jpg" alt="Description of Image 4" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image5.jpg" alt="Description of Image 5" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image6.jpg" alt="Description of Image 6" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image7.jpg" alt="Description of Image 7" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image8.jpg" alt="Description of Image 8" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image9.jpg" alt="Description of Image 9" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image10.jpg" alt="Description of Image 10" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image11.jpg" alt="Description of Image 11" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image12.jpg" alt="Description of Image 12" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image13.jpg" alt="Description of Image 13" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image14.jpg" alt="Description of Image 14" />
-        </div>
-        <div class="image-placeholder">
-            <img src="assets/images/image15.jpg" alt="Description of Image 15" />
+
+        <!-- Wearable Section -->
+        <div class="section-wrapper">
+            <div class="section-heading">WEARABLE</div>
+            <div class="image-grid">
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/earrings1.png" alt="beer can earrings color upcycle" />
+                    <div class="caption">beer cans</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/earrings2.png" alt="beer can earrings color upcycle" />
+                    <div class="caption">beer cans</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/earrings3.png" alt="beer can earrings color upcycle" />
+                    <div class="caption">beer cans</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/earrings4.png" alt="beer can earrings color upcycle" />
+                    <div class="caption">scrap brass</div>
+                </div>
+
+                <div class="image-wrapper">
+                    <img class="static-image" src="../archiveimages/earrings5.png" alt="beer can earrings color upcycle" />
+                    <div class="caption">scrap brass</div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <p><span class="bright-pink">ARCHIVE</span></p>
-
+    <div class="footer-wrapper">
+        <footer>
+            <span class="bright-pink">ARCHIVE</span>
+            <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
+        </footer>
+    </div>
 </body>
 </html>
