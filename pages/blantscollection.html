@@ -45,8 +45,8 @@ a:hover {
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  padding: 10px;
+  gap: 20px;
+  padding: 20px;
 }
 
 .image-container {
@@ -56,12 +56,11 @@ a:hover {
 
 .image-wrapper {
   position: relative;
-  width: 50%;
-  padding-top: 75%;
+  width: 100%;
+  padding-top: 150%;
   border: 2px solid #FF007F;
   background-color: #FF7F00;
   overflow: hidden;
-  margin: 0 auto;
   cursor: pointer;
 }
 
@@ -92,10 +91,9 @@ a:hover {
   position: absolute;
   top: 50%;
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: space-between;
   transform: translateY(-50%);
-  display: none;
 }
 
 .image-nav-btn {
@@ -104,6 +102,7 @@ a:hover {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  z-index: 2;
 }
 
 .image-caption {
@@ -232,12 +231,14 @@ document.querySelectorAll('.image-wrapper').forEach(container => {
   container.addEventListener('mouseenter', () => {
     imageNav.style.display = 'flex';
     mainImage.style.opacity = '0';
+    container.querySelector('.hover-images').style.display = 'block';
     hoverImages[currentIndex].style.opacity = '1';
   });
 
   container.addEventListener('mouseleave', () => {
     imageNav.style.display = 'none';
     mainImage.style.opacity = '1';
+    container.querySelector('.hover-images').style.display = 'none';
     hoverImages.forEach(img => img.style.opacity = '0');
     currentIndex = 0;
   });
@@ -286,12 +287,18 @@ let currentModalIndex = 0;
 let currentModalImages = [];
 
 document.querySelectorAll('.image-wrapper').forEach(wrapper => {
-  wrapper.addEventListener('click', function() {
-    modal.style.display = 'block';
-    currentModalImages = Array.from(this.querySelectorAll('.hover-images img'));
-    currentModalIndex = Array.from(currentModalImages).findIndex(img => img.style.opacity === '1');
-    if (currentModalIndex === -1) currentModalIndex = 0;
-    updateModalImage();
+  wrapper.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('image-nav-btn')) {
+      modal.style.display = 'block';
+      currentModalImages = Array.from(this.querySelectorAll('.hover-images img'));
+      currentModalIndex = Array.from(currentModalImages).findIndex(img => img.style.opacity === '1');
+      if (currentModalIndex === -1) {
+        currentModalIndex = 0;
+        modalImg.src = this.querySelector('.main-image').src;
+      } else {
+        updateModalImage();
+      }
+    }
   });
 });
 
@@ -312,8 +319,7 @@ nextBtn.onclick = function() {
 function updateModalImage() {
   modalImg.src = currentModalImages[currentModalIndex].src;
 }
-
-
+</script>
 
 </body>
 </html>
