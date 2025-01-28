@@ -231,6 +231,8 @@ document.querySelectorAll('.image-wrapper').forEach(container => {
 
   container.addEventListener('mouseenter', () => {
     imageNav.style.display = 'flex';
+    mainImage.style.opacity = '0';
+    hoverImages[currentIndex].style.opacity = '1';
   });
 
   container.addEventListener('mouseleave', () => {
@@ -240,21 +242,41 @@ document.querySelectorAll('.image-wrapper').forEach(container => {
     currentIndex = 0;
   });
 
-  container.querySelector('.prev-btn').addEventListener('click', (e) => {
+  const prevButton = container.querySelector('.prev-btn');
+  const nextButton = container.querySelector('.next-btn');
+
+  prevButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    hoverImages[currentIndex].style.opacity = '0';
-    currentIndex = (currentIndex - 1 + hoverImages.length) % hoverImages.length;
-    hoverImages[currentIndex].style.opacity = '1';
+    showPrevImage(container);
   });
 
-  container.querySelector('.next-btn').addEventListener('click', (e) => {
+  nextButton.addEventListener('click', (e) => {
     e.stopPropagation();
-    hoverImages[currentIndex].style.opacity = '0';
-    currentIndex = (currentIndex + 1) % hoverImages.length;
-    hoverImages[currentIndex].style.opacity = '1';
+    showNextImage(container);
   });
 });
 
+function showPrevImage(container) {
+  const hoverImages = container.querySelectorAll('.hover-images img');
+  let currentIndex = Array.from(hoverImages).findIndex(img => img.style.opacity === '1');
+  if (currentIndex === -1) currentIndex = 0;
+
+  hoverImages[currentIndex].style.opacity = '0';
+  currentIndex = (currentIndex - 1 + hoverImages.length) % hoverImages.length;
+  hoverImages[currentIndex].style.opacity = '1';
+}
+
+function showNextImage(container) {
+  const hoverImages = container.querySelectorAll('.hover-images img');
+  let currentIndex = Array.from(hoverImages).findIndex(img => img.style.opacity === '1');
+  if (currentIndex === -1) currentIndex = 0;
+
+  hoverImages[currentIndex].style.opacity = '0';
+  currentIndex = (currentIndex + 1) % hoverImages.length;
+  hoverImages[currentIndex].style.opacity = '1';
+}
+
+// Modal functionality
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImage');
 const closeBtn = document.getElementsByClassName('close')[0];
@@ -267,7 +289,8 @@ document.querySelectorAll('.image-wrapper').forEach(wrapper => {
   wrapper.addEventListener('click', function() {
     modal.style.display = 'block';
     currentModalImages = Array.from(this.querySelectorAll('.hover-images img'));
-    currentModalIndex = 0;
+    currentModalIndex = Array.from(currentModalImages).findIndex(img => img.style.opacity === '1');
+    if (currentModalIndex === -1) currentModalIndex = 0;
     updateModalImage();
   });
 });
@@ -289,7 +312,8 @@ nextBtn.onclick = function() {
 function updateModalImage() {
   modalImg.src = currentModalImages[currentModalIndex].src;
 }
-</script>
+
+
 
 </body>
 </html>
