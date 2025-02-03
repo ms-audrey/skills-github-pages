@@ -3,9 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>gutter.couture by audrey everist</title>
-<<<<<<< HEAD
-<link rel="stylesheet" href="../index.css">
-=======
 <link rel="stylesheet" type="text/css" href="normalize.css">
 <style>
 @font-face {
@@ -84,6 +81,10 @@ a:hover {
   width: 100%;
   height: 100%;
   display: none;
+}
+
+.hover-images img {
+  opacity: 0;
 }
 
 .image-nav {
@@ -169,54 +170,21 @@ a:hover {
   color: #FFB84D;
 }
 </style>
->>>>>>> b0697119fe7b924c535f999fbeb1d71c4b233831
 </head>
-
 <body style="font-family: courier-classic, monospace; word-break: break-all; line-height: 1; font-size: 32px;">
 
-<p>
-  <span class="bright-pink">BLANTS COLLECTION</span>                            
-   <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a>
- </p>
+<p><span class="bright-pink">BLANTS COLLECTION</span>                            
+   <a href="../index.html"><span class="bright-turquoise">gutter.couture</span></a></p>
 
-
-<div class="grid-container">
-  <div class="grid-image">
-    <img src="../blants/bcfront.png" alt="blues clues" class="main-image">
-  </div>
-  <div class="grid-image">
-    <img src="../blants/BCfrontplay.JPG" alt="blues clues 3">
-  </div>
-  <div class="grid-image">
-    <img src="../blants/bcfront2.JPG" alt="blues clues 4">
-  </div>  
-  <div class="grid-image">
-    <img src="../blants/bcside1.JPG" alt="blues clues 5">
-  </div>
-  <div class="grid-image">
-    5
-  </div>
-  <div class="grid-image">
-    6
-  </div>  
-  <div class="grid-image">
-    7
-  </div>
-  <div class="grid-image">
-    8
-  </div>
-</div>
-
-
-<!-- <div class="image-grid">
+<div class="image-grid">
   <div class="image-container">
     <div class="image-wrapper">
-      <img src="../blants/bcfront.png" alt="blues clues" class="main-image">
+      <img src="../blants/bcfront.png" alt="blues clues" class="main-image" loading="lazy">
       <div class="hover-images">
-        <img src="../blants/bcback.JPG" alt="blues clues 2">
-        <img src="../blants/BCfrontplay.JPG" alt="blues clues 3">
-        <img src="../blants/bcfront2.JPG" alt="blues clues 4">
-        <img src="../blants/bcside1.JPG" alt="blues clues 5">
+        <img src="../blants/bcback.JPG" alt="blues clues 2" loading="lazy">
+        <img src="../blants/BCfrontplay.JPG" alt="blues clues 3" loading="lazy">
+        <img src="../blants/bcfront2.JPG" alt="blues clues 4" loading="lazy">
+        <img src="../blants/bcside1.JPG" alt="blues clues 5" loading="lazy">
       </div>
       <div class="image-nav">
         <button class="image-nav-btn prev-btn">&lt;</button>
@@ -228,11 +196,11 @@ a:hover {
   
   <div class="image-container">
     <div class="image-wrapper">
-      <img src="../blants/bluefront2.JPG" alt="blants 2" class="main-image">
+      <img src="../blants/bluefront2.JPG" alt="blants 2" class="main-image" loading="lazy">
       <div class="hover-images">
-        <img src="../blants/bluefront.JPG" alt="Blant 2 Alternative 1">
-        <img src="../blants/blueback.JPG" alt="Blant 2 Alternative 2">
-        <img src="../blants/blueside.JPG" alt="Blant 2 Alternative 3">
+        <img src="../blants/bluefront.JPG" alt="Blant 2 Alternative 1" loading="lazy">
+        <img src="../blants/blueback.JPG" alt="Blant 2 Alternative 2" loading="lazy">
+        <img src="../blants/blueside.JPG" alt="Blant 2 Alternative 3" loading="lazy">
       </div>
       <div class="image-nav">
         <button class="image-nav-btn prev-btn">&lt;</button>
@@ -241,40 +209,42 @@ a:hover {
     </div>
     <p class="image-caption">Blue Patchwork specs: </p>
   </div>
-</div>
 
+  <!-- Add Fenway images -->
   <div class="image-container">
-  <div class="image-wrapper">
-    <img src="../blants/Fenwayback1.JPG" alt="New Image 1" class="main-image">
-    <div class="hover-images">
-      <img src="../blants/Fenwayfront.JPG" alt="New Image 2">
-      <img src="../blants/Fenwayback.JPG" alt="New Image 3">
-      <img src="../blants/Fenwayside.JPG" alt="New Image 3">
+    <div class="image-wrapper">
+      <img src="../blants/Fenwayback1.JPG" alt="Fenway 1" class="main-image" loading="lazy">
+      <div class="hover-images">
+        <img src="../blants/Fenwayside.JPG" alt="Fenway 2" loading="lazy">
+        <img src="../blants/Fenwayfront.JPG" alt="Fenway 3" loading="lazy">
+        <img src="../blants/Fenwayback.JPG" alt="Fenway 4" loading="lazy">
+      </div>
+      <div class="image-nav">
+        <button class="image-nav-btn prev-btn">&lt;</button>
+        <button class="image-nav-btn next-btn">&gt;</button>
+      </div>
     </div>
-    <div class="image-nav">
-      <button class="image-nav-btn prev-btn">&lt;</button>
-      <button class="image-nav-btn next-btn">&gt;</button>
-    </div>
+    <p class="image-caption">Fenway specs: </p>
   </div>
-  <p class="image-caption">New Image Collection specs: </p>
+
+  <!-- Add Fuschia images -->
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img src="../blants/fuschiaback2.JPG" alt="Fuschia 1" class="main-image" loading="lazy">
+      <div class="hover-images">
+        <img src="../blants/fuschiafront2.JPG" alt="Fuschia 2" loading="lazy">
+        <img src="../blants/fuschiaside.JPG" alt="Fuschia 3" loading="lazy">
+        <img src="../blants/fuschiafront4.JPG" alt="Fuschia 4" loading="lazy">
+      </div>
+      <div class="image-nav">
+        <button class="image-nav-btn prev-btn">&lt;</button>
+        <button class="image-nav-btn next-btn">&gt;</button>
+      </div>
+    </div>
+    <p class="image-caption">Fuschia specs: </p>
+  </div>
 </div>
 
-    <div class="image-container">
-  <div class="image-wrapper">
-    <img src="../blants/fuschiafront2.JPG" alt="New Image 1" class="main-image">
-    <div class="hover-images">
-      <img src="../blants/fuschiaback2.JPG" alt="New Image 2">
-      <img src="../blants/fuschiafront4.JPG" alt="New Image 3">
-      <img src="../blants/fuschiaside.JPG" alt="New Image 3">
-    </div>
-    <div class="image-nav">
-      <button class="image-nav-btn prev-btn">&lt;</button>
-      <button class="image-nav-btn next-btn">&gt;</button>
-    </div>
-  </div>
-  <p class="image-caption">New Image Collection specs: </p>
-</div>
-  
 <div id="imageModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="modalImage">
@@ -282,115 +252,75 @@ a:hover {
     <button id="prevButton">&lt;</button>
     <button id="nextButton">&gt;</button>
   </div>
-</div> -->
+</div>
 
 <p><a href="blantscollection.html"><span class="bright-pink">BLANTS COLLECTION</span></a></p>
 
 <script>
-document.querySelectorAll('.image-wrapper').forEach(container => {
-  const mainImage = container.querySelector('.main-image');
-  const hoverImages = container.querySelectorAll('.hover-images img');
-  const imageNav = container.querySelector('.image-nav');
-  let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const imageWrappers = document.querySelectorAll('.image-wrapper');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const closeBtn = document.querySelector('.close');
+  const prevBtn = document.getElementById('prevButton');
+  const nextBtn = document.getElementById('nextButton');
+  let currentModalImages = [];
+  let currentModalIndex = 0;
 
-  container.addEventListener('mouseenter', () => {
-    imageNav.style.display = 'flex';
-    mainImage.style.opacity = '0';
-    container.querySelector('.hover-images').style.opacity = '1';
-    hoverImages[currentIndex].style.opacity = '1';
-  });
-
-  container.addEventListener('mouseleave', () => {
-    imageNav.style.display = 'none';
-    mainImage.style.opacity = '1';
-    container.querySelector('.hover-images').style.opacity = '0';
-    hoverImages.forEach(img => img.style.opacity = '0');
-    currentIndex = 0;
-  });
-
-  const prevButton = container.querySelector('.prev-btn');
-  const nextButton = container.querySelector('.next-btn');
-
-  prevButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showPrevImage(container);
-  });
-
-  nextButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showNextImage(container);
-  });
-});
-
-function showPrevImage(container) {
-  const hoverImages = container.querySelectorAll('.hover-images img');
-  let currentIndex = Array.from(hoverImages).findIndex(img => img.style.opacity === '1');
-  if (currentIndex === -1) currentIndex = 0;
-
-  hoverImages[currentIndex].style.opacity = '0';
-  currentIndex = (currentIndex - 1 + hoverImages.length) % hoverImages.length;
-  hoverImages[currentIndex].style.opacity = '1';
-}
-
-function showNextImage(container) {
-  const hoverImages = container.querySelectorAll('.hover-images img');
-  let currentIndex = Array.from(hoverImages).findIndex(img => img.style.opacity === '1');
-  if (currentIndex === -1) currentIndex = 0;
-
-  hoverImages[currentIndex].style.opacity = '0';
-  currentIndex = (currentIndex + 1) % hoverImages.length;
-  hoverImages[currentIndex].style.opacity = '1';
-}
-
-// Modal functionality
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImage');
-const closeBtn = document.getElementsByClassName('close')[0];
-const prevBtn = document.getElementById('prevButton');
-const nextBtn = document.getElementById('nextButton');
-let currentModalIndex = 0;
-let currentModalImages = [];
-
-document.querySelectorAll('.image-wrapper').forEach(wrapper => {
-  wrapper.addEventListener('click', function(e) {
-    if (!e.target.classList.contains('image-nav-btn')) {
-      modal.style.display = 'block';
-      currentModalImages = Array.from(this.querySelectorAll('.hover-images img'));
-      currentModalIndex = Array.from(currentModalImages).findIndex(img => img.style.opacity === '1');
-      if (currentModalIndex === -1) {
-        currentModalIndex = 0;
-        modalImg.src = this.querySelector('.main-image').src;
-      } else {
-        updateModalImage();
-      }
+  function handleImageInteraction(container, enter) {
+    const mainImage = container.querySelector('.main-image');
+    const hoverImages = container.querySelectorAll('.hover-images img');
+    const imageNav = container.querySelector('.image-nav');
+    
+    mainImage.style.opacity = enter ? '0' : '1';
+    container.querySelector('.hover-images').style.display = enter ? 'block' : 'none';
+    imageNav.style.display = enter ? 'flex' : 'none';
+    
+    if (enter) {
+      hoverImages[0].style.opacity = '1';
+    } else {
+      hoverImages.forEach(img => img.style.opacity = '0');
     }
+  }
+
+  function showImage(container, direction) {
+    const hoverImages = container.querySelectorAll('.hover-images img');
+    let currentIndex = Array.from(hoverImages).findIndex(img => img.style.opacity === '1');
+    hoverImages[currentIndex].style.opacity = '0';
+    currentIndex = (currentIndex + direction + hoverImages.length) % hoverImages.length;
+    hoverImages[currentIndex].style.opacity = '1';
+  }
+
+  imageWrappers.forEach(container => {
+    container.addEventListener('mouseenter', () => handleImageInteraction(container, true));
+    container.addEventListener('mouseleave', () => handleImageInteraction(container, false));
+    container.querySelector('.prev-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(container, -1);
+    });
+    container.querySelector('.next-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(container, 1);
+    });
+    container.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('image-nav-btn')) {
+        modal.style.display = 'block';
+        currentModalImages = Array.from(this.querySelectorAll('.hover-images img'));
+        currentModalIndex = Array.from(currentModalImages).findIndex(img => img.style.opacity === '1');
+        modalImg.src = currentModalIndex === -1 ? this.querySelector('.main-image').src : currentModalImages[currentModalIndex].src;
+      }
+    });
   });
-});
 
-closeBtn.onclick = function() {
-  modal.style.display = 'none';
-}
-
-prevBtn.onclick = function() {
-  currentModalIndex = (currentModalIndex - 1 + currentModalImages.length) % currentModalImages.length;
-  updateModalImage();
-}
-
-nextBtn.onclick = function() {
-  currentModalIndex = (currentModalIndex + 1) % currentModalImages.length;
-  updateModalImage();
-}
-
-function updateModalImage() {
-  modalImg.src = currentModalImages[currentModalIndex].src;
-}
-
-// Preload images
-window.addEventListener('load', () => {
-  document.querySelectorAll('.image-wrapper img').forEach(img => {
-    const image = new Image();
-    image.src = img.src;
-  });
+  closeBtn.onclick = () => modal.style.display = 'none';
+  prevBtn.onclick = () => {
+    currentModalIndex = (currentModalIndex - 1 + currentModalImages.length) % currentModalImages.length;
+    modalImg.src = currentModalImages[currentModalIndex].src;
+  };
+  nextBtn.onclick = () => {
+    currentModalIndex = (currentModalIndex + 1) % currentModalImages.length;
+    modalImg.src = currentModalImages[currentModalIndex].src;
+  };
 });
 </script>
 
