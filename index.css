@@ -32,12 +32,22 @@ body {
 }  
   
 a, a:visited {
-  color: #7BA098; /* soft sage green for links */
+  color: #A0736B; /* muted rose-brown for links */
   text-decoration: none;
 }
 
 a:hover {
-  color: #A0736B; /* muted rose-brown on hover */
+  color: #B22222; /* red on hover */
+}
+
+/* Special red links for main navigation */
+.red-link, .red-link:visited {
+  color: #B22222; /* red for main nav links */
+}
+
+/* Bright turquoise for site title */
+.turquoise-link, .turquoise-link:visited {
+  color: #40E0D0; /* bright turquoise */
 }
 
 .hl {
