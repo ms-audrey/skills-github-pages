@@ -5,39 +5,39 @@
 
 body {
   background-color: #FFF7E1; /* light tan - matches archive */
-  color: #8B0000; /* dark red - matches archive */
+  color: #D1BE97; /* very light brown-tan */
   font-family: courier-classic, sans-serif;
   hyphens: none;
 }
 
 /* Define color classes to match archive */
 .bright-pink {
-  color: #D1BE97; /* deep red - matches archive */
+  color: #A0736B; /* muted rose-brown */
 }
   
 .bright-turquoise {
-  color: #40E0D0; /* bright turquoise - matches archive */
+  color: #7BA098; /* soft sage green */
 }
 
 .bright-royal-blue {
-  color: #4169E1; /* royal blue */
+  color: #8B9DC3; /* soft periwinkle */
 }
   
 .lighter-orange {
-  color: #F08080; /* light coral - replaces orange with light red */
+  color: #B8956A; /* warm tan */
 }
 
 .plum {
-  color: #5A005F; 
+  color: #8B7B8B; /* soft mauve */
 }  
   
 a, a:visited {
-  color: #40E0D0; /* bright turquoise for links - matches archive */
+  color: #7BA098; /* soft sage green for links */
   text-decoration: none;
 }
 
 a:hover {
-  color: #B22222; /* deep red on hover - matches archive scheme */
+  color: #A0736B; /* muted rose-brown on hover */
 }
 
 .hl {
